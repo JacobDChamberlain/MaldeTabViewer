@@ -5,6 +5,17 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGuitar } from '@fortawesome/free-solid-svg-icons';
 import './AlphaTab.css';
 import PlayerControls from './PlayerControls/PlayerControls';
+import Guts_1 from '/FromManToMist/1_GUTS_tab.gp5';
+import SDC_2 from '/FromManToMist/2_SUS_DIGO_BASS_tab.gp5';
+import Mouthful_3 from '/FromManToMist/3_MOUTHFUL_tab.gp5';
+import Hydraulic_4 from '/FromManToMist/4_HYDRAULIC_BASS_tab.gp5';
+import Jukai_5 from '/FromManToMist/5_JUKAI_tab.gp5';
+import Icon_6 from '/FromManToMist/6_ICON_OF_SIN_tab.gp5';
+import Winter_7 from '/FromManToMist/7_WINTER_PALACE_tab.gp5';
+
+const tabs = {
+    FromManToMist: [Guts_1, SDC_2, Mouthful_3, Hydraulic_4, Jukai_5, Icon_6, Winter_7]
+}
 
 
 const AlphaTab: React.FC = () => {
@@ -16,10 +27,9 @@ const AlphaTab: React.FC = () => {
     const [artist, setArtist] = useState('');
     const [loading, setLoading] = useState(true);
     const [tabFilePath, setTabFilePath] = useState<string | null>(null);
-    const fileURL = '/FromManToMist/1_GUTS_tab.gp5'
 
     useEffect(() => {
-        setTabFilePath(fileURL);
+        setTabFilePath(Mouthful_3);
     }, []);
 
     useEffect(() => {
