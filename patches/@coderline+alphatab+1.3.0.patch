@@ -1,0 +1,25 @@
+diff --git a/node_modules/@coderline/alphatab/dist/alphaTab.d.ts b/node_modules/@coderline/alphatab/dist/alphaTab.d.ts
+index 2bf4f81..867395c 100644
+--- a/node_modules/@coderline/alphatab/dist/alphaTab.d.ts
++++ b/node_modules/@coderline/alphatab/dist/alphaTab.d.ts
+@@ -7567,5 +7567,5 @@ declare const index_d_PositionChangedEventArgs: typeof PositionChangedEventArgs;
+ declare namespace index_d {
+   export { index_d_ActiveBeatsChangedEventArgs as ActiveBeatsChangedEventArgs, index_d_AlphaSynth as AlphaSynth, index_d_AlphaSynthAudioWorkletOutput as AlphaSynthAudioWorkletOutput, index_d_AlphaSynthScriptProcessorOutput as AlphaSynthScriptProcessorOutput, index_d_AlphaSynthWebAudioOutputBase as AlphaSynthWebAudioOutputBase, index_d_AlphaSynthWebWorkerApi as AlphaSynthWebWorkerApi, index_d_CircularSampleBuffer as CircularSampleBuffer, type index_d_IAlphaSynth as IAlphaSynth, type index_d_ISynthOutput as ISynthOutput, index_d_MidiEventsPlayedEventArgs as MidiEventsPlayedEventArgs, index_d_PlaybackRange as PlaybackRange, index_d_PlaybackRangeChangedEventArgs as PlaybackRangeChangedEventArgs, index_d_PlayerState as PlayerState, index_d_PlayerStateChangedEventArgs as PlayerStateChangedEventArgs, index_d_PositionChangedEventArgs as PositionChangedEventArgs };
+ }
+-
+-export { AlphaTabApi, AlphaTabError, AlphaTabErrorType, CoreSettings, DisplaySettings, Environment, FileLoadError, FingeringMode, FormatError, ImporterSettings, LayoutMode, LogLevel, Logger, NotationMode, NotationSettings, PlayerOutputMode, PlayerSettings, ProgressEventArgs, RenderingResources, ResizeEventArgs, ScrollMode, Settings, StaveProfile, SystemsLayoutMode, TabRhythmMode, VibratoPlaybackSettings, WebPlatform, index_d$4 as exporter, index_d$5 as importer, VersionInfo as meta, index_d$3 as midi, index_d$6 as model, index_d$1 as platform, index_d$2 as rendering, index_d as synth };
++//* I've added Score and Track classes to the export list here, as we use them in the component :)
++export { AlphaTabApi, AlphaTabError, AlphaTabErrorType, CoreSettings, DisplaySettings, Environment, FileLoadError, FingeringMode, FormatError, ImporterSettings, LayoutMode, LogLevel, Logger, NotationMode, NotationSettings, PlayerOutputMode, PlayerSettings, ProgressEventArgs, RenderingResources, ResizeEventArgs, Score, ScrollMode, Settings, StaveProfile, SystemsLayoutMode, TabRhythmMode, Track, VibratoPlaybackSettings, WebPlatform, index_d$4 as exporter, index_d$5 as importer, VersionInfo as meta, index_d$3 as midi, index_d$6 as model, index_d$1 as platform, index_d$2 as rendering, index_d as synth };
+diff --git a/node_modules/@coderline/alphatab/dist/alphaTab.vite.mjs b/node_modules/@coderline/alphatab/dist/alphaTab.vite.mjs
+index 5cb77c5..c08acdf 100644
+--- a/node_modules/@coderline/alphatab/dist/alphaTab.vite.mjs
++++ b/node_modules/@coderline/alphatab/dist/alphaTab.vite.mjs
+@@ -1895,7 +1895,7 @@ function copyAssetsPlugin(options) {
+                 await Promise.all(files
+                     .filter(f => f.isFile())
+                     .map(async (file) => {
+-                    const sourceFilename = path.join(file.path, file.name);
++                    const sourceFilename = path.join(fullDir, file.name);
+                     await fs.promises.copyFile(sourceFilename, path.join(outputPath, subdir, file.name));
+                 }));
+             }
