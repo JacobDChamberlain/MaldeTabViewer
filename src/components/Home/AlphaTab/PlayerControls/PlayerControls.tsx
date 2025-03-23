@@ -1,5 +1,5 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faStepBackward, faPlay, faHourglassHalf, faRetweet, faPrint, faSearch, faUserClock } from '@fortawesome/free-solid-svg-icons';
+import { faStepBackward, faPlay, faHourglassHalf, faRetweet, faPrint, faUserClock } from '@fortawesome/free-solid-svg-icons';
 import './PlayerControls.css';
 import { useEffect, useState } from 'react';
 import { AlphaTabApi } from '@coderline/alphatab';
@@ -18,14 +18,14 @@ const PlayerControls: React.FC<PlayerControlsProps> = ({ title, artist, playPaus
     const [countIn, setCountIn] = useState(false);
     const [metronome, setMetronome] = useState(false);
     const [isLooping, setIsLooping] = useState(false);
-    const [currentTime, setCurrentTime] = useState(0);
-    const [endTime, setEndTime] = useState(0);
+    const [_currentTime, setCurrentTime] = useState(0);
+    const [_endTime, setEndTime] = useState(0);
     const [formattedTime, setFormattedTime] = useState('00:00 / 00:00');
 
 
     useEffect(() => {
         const handlePlayerPositionChanged = (e: { currentTime: number; endTime: number; }) => {
-            const currentSeconds = Math.floor(e.currentTime / 1000); // helps reduce number of calls to UI
+            // const currentSeconds = Math.floor(e.currentTime / 1000); // helps reduce number of calls to UI
             setCurrentTime(e.currentTime);
             setEndTime(e.endTime);
             setFormattedTime(`${formatDuration(e.currentTime)} / ${formatDuration(e.endTime)}`);
