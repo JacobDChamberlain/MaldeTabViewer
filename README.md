@@ -1,3 +1,3 @@
 # Malde Tab Viewer
 
-This app displays guitar tabs for the sick nasty death thrash groove metal riff lords, Maldevera.
+This is an app to view guitar tabs for songs from the sick nasty death thrash groove metal riff lords, Maldevera.
