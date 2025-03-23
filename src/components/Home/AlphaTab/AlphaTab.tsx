@@ -3,7 +3,6 @@ import { AlphaTabApi, Score, Track, Settings } from '@coderline/alphatab';
 import { Tab } from '../../../../interfaces/tab';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faGuitar } from '@fortawesome/free-solid-svg-icons';
-import useUser from '../../App/useUser';
 import './AlphaTab.css';
 import PlayerControls from './PlayerControls/PlayerControls';
 
@@ -17,15 +16,11 @@ const AlphaTab: React.FC = () => {
     const [artist, setArtist] = useState('');
     const [loading, setLoading] = useState(true);
     const [tabFilePath, setTabFilePath] = useState<string | null>(null);
-    const { user } = useUser();
-
+    const fileURL = '/FromManToMist/1_GUTS_tab.gp5'
 
     useEffect(() => {
-        if (user && user.tabs && user.tabs.length > 0) {
-            const fileURL = user.tabs[0].fileURL;
-            setTabFilePath(fileURL);
-        }
-    }, [user]);
+        setTabFilePath(fileURL);
+    }, []);
 
     useEffect(() => {
         if (mainRef.current) {
@@ -86,13 +81,13 @@ const AlphaTab: React.FC = () => {
                     </div>
                 </div>
             )}
-            <div className='temp-controls'>
+            {/* <div className='temp-controls'>
                 <select className='song-select' value={tabFilePath || ''} onChange={updateTabFilePath}>
                     {user.tabs.map((tab: Tab) => (
                         <option key={tab.id} value={tab.fileURL}>{tab.name}</option>
                     ))}
                 </select>
-            </div>
+            </div> */}
 
             <div className="at-content">
                 <div className="at-sidebar">
