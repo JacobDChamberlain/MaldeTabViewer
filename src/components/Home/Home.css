@@ -4,6 +4,7 @@
     flex-direction: column;
     /* justify-content: center; */
     align-items: center;
+    /* change background color and all colors to a scheme to match that of the album selected, PLEASE!!!!! */
 }
 
 .at-cursor-bar {
