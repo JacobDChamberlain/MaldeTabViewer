@@ -6,6 +6,18 @@ import { faGuitar } from '@fortawesome/free-solid-svg-icons';
 import './AlphaTab.css';
 import PlayerControls from './PlayerControls/PlayerControls';
 
+const tabs = {
+    FromManToMist: [
+        { id: 1, name: 'Guts', fileURL: '/FromManToMist/1_GUTS_tab.gp5' },
+        { id: 2, name: 'Sus Digo City', fileURL: '/FromManToMist/2_SUS_DIGO_BASS_tab.gp5' },
+        { id: 3, name: 'Mouthful Of Concrete', fileURL: '/FromManToMist/3_MOUTHFUL_tab.gp5' },
+        { id: 4, name: 'Hydraulic Injection Injury', fileURL: '/FromManToMist/4_HYDRAULIC_BASS_tab.gp5' },
+        { id: 5, name: 'Jukai', fileURL: '/FromManToMist/5_JUKAI_tab.gp5' },
+        { id: 6, name: 'Icon Of Sin', fileURL: '/FromManToMist/6_ICON_OF_SIN_tab.gp5' },
+        { id: 7, name: 'Winter Palace', fileURL: '/FromManToMist/7_WINTER_PALACE_tab.gp5' },
+    ] as Tab[]
+};
+
 
 const AlphaTab: React.FC = () => {
     const wrapperRef = useRef<HTMLDivElement>(null);
@@ -16,10 +28,9 @@ const AlphaTab: React.FC = () => {
     const [artist, setArtist] = useState('');
     const [loading, setLoading] = useState(true);
     const [tabFilePath, setTabFilePath] = useState<string | null>(null);
-    const fileURL = '/FromManToMist/1_GUTS_tab.gp5'
 
     useEffect(() => {
-        setTabFilePath(fileURL);
+        setTabFilePath(tabs.FromManToMist[2].fileURL);
     }, []);
 
     useEffect(() => {
@@ -81,13 +92,13 @@ const AlphaTab: React.FC = () => {
                     </div>
                 </div>
             )}
-            {/* <div className='temp-controls'>
+            <div className='temp-controls'>
                 <select className='song-select' value={tabFilePath || ''} onChange={updateTabFilePath}>
-                    {user.tabs.map((tab: Tab) => (
+                    {tabs.FromManToMist.map((tab: Tab) => (
                         <option key={tab.id} value={tab.fileURL}>{tab.name}</option>
                     ))}
                 </select>
-            </div> */}
+            </div>
 
             <div className="at-content">
                 <div className="at-sidebar">
